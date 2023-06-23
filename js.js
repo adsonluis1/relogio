@@ -4,7 +4,7 @@ const relogio = document.getElementById('relogio')
     const botoes = document.getElementById('botoes')
     const tela = document.getElementById('tela')
     const tudo = document.getElementById('tudo')
-    
+    const btn_parar= document.getElementById('btn_parar')
 
     let alarme= false
     let tocando_alarme= false
@@ -30,14 +30,12 @@ const relogio = document.getElementById('relogio')
             alarme= true
             }
         }
-        if(evt.target.value=='parar'){
-           tela.innerHTML= ''
-           alarme= false
-           tocando_alarme= false
-           tempo.value = ''
-           tudo.classList.add('padrao')
-           audio.pause()
-            }
+        if(evt.target.value== 'parar'){
+            tela.innerHTML= ''
+            alarme= false
+            tocando_alarme= false
+            tempo.value = ''
+        }
         })
         
 const funk= ()=>{
@@ -60,13 +58,29 @@ relogio.innerHTML=horacompleta
 if(alarme && !tocando_alarme){
     if(horacompleta >= tela.innerHTML){
         // tudo.classList.add('alarme')
-        setInterval(funk, 500)
-        setInterval(funk2, 1000)
+        const interval1 =setInterval(funk, 500)
+        const interval2 =setInterval(funk2, 1000)
         audio.play()
         tocando_alarme= true
+
+        btn_parar.addEventListener('click', ()=>{
+            tela.innerHTML= ''
+            alarme= false
+            tocando_alarme= false
+            tempo.value = ''
+            audio.pause()
+            clearInterval(interval1)
+            clearInterval(interval2)
+            tudo.classList.remove('alarme')
+             })
     }
+
+    
+
     }
 }
+
+
 
 const v_data= ()=>{
     let data = new Date()

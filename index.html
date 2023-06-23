@@ -36,7 +36,25 @@
             background-color: red !important;
         }
         .padrao{
-            background-color:rgb(185, 185, 185) !important;
+            background-color:rgb(185, 185, 185);
+        }
+        input[type='button']{
+            background-color: rgb(53, 53, 53);
+            color: rgb(0, 255, 0);
+            padding: 5px;
+            border-radius: 5px;
+            width: 100px;
+        }
+        input[type='number']{
+            background-color: rgb(53, 53, 53);
+            color: rgb(0, 255, 0);
+            margin: 10px 0px;
+        }
+        #form_alarme{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
@@ -47,19 +65,21 @@
         <div id="relogio"></div>
         <div id="alarme">
             <div>hora do alarme: <span  id="tela"></span></div> 
-            <form>
+            <form id="form_alarme">
                 <label for="tempo">Informe o tempo do alarme em segundos</label>
-                <br>
+                
                 <input type="number" name="" id="tempo">
-                <br>
-                <br>
+                
+                
+            </form>
+        </div>
+
+            <form>
                 <div id="botoes">
-                <input type="button" value="confimar">
-                <input type="button" value="parar">
+                    <input type="button" value="confimar">
+                    <input type="button" value="parar" id="btn_parar">
                 </div>
             </form>
-
-        </div>
         
     </section>
 </body>
